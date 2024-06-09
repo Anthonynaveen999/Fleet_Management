@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Order #<%= order._id %></h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+    </div>
+  </div>
+</div>
+
+<div class="col py-3">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+          <li class="breadcrumb-item active">Order #<%= order._id %></li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col text-end fw-lighter">
+      <b>Last Updated: <%= new Date(order.updated_at).toUTCString() %> </b>
+      <b>Order ID:</b> <%= order._id %>
+    </div>
+  </div>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Customer Name:</b></div>
+      <div class="col"><%= order.customer_name %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Contact:</b></div>
+      <div class="col"><%= order.contact %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Pick-up Location:</b></div>
+      <div class="col"><%= order.pick_up %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Destination:</b></div>
+      <div class="col"><%= order.destination %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Cargo Weight:</b></div>
+      <div class="col"><%= order.cargo_weight %> kg</div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Assigned Driver:</b></div>
+      <div class="col"><%= order.assigned_driver %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Assigned Vehicle:</b></div>
+      <div class="col"><%= order.assigned_vehicle %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Status:</b></div>
+      <div class="col"><%= order.status %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Date Created:</b></div>
+      <div class="col"><%= new Date(order.created_at).toUTCString() %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Date Modified:</b></div>
+      <div class="col"><%= new Date(order.updated_at).toUTCString() %></div>
+    </div>
+  </li>
+</ul>

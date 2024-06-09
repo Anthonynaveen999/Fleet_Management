@@ -1,0 +1,99 @@
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Editing: <%= driver.name %></h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <button class="btn btn-sm btn-outline-secondary">?</button>
+    </div>
+  </div>
+</div>
+
+<div class="col py-3">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+          <li class="breadcrumb-item active"><%= driver.name %></li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col text-end fw-lighter">
+      <b>Last Updated: <%= new Date(driver.updatedAt).toUTCString() %></b>
+      <b>Driver ID:</b> <%= driver._id %>
+    </div>
+  </div>
+</div>
+
+<form action="/drivers/edit/<%= driver._id %>?_method=POST" method="POST">
+
+  <div class="row form-group mb-4">
+    <div class="col">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="<%= driver.name %>" placeholder="Name" required>
+    </div>
+
+    <div class="col">
+      <label for="contact">Contact</label>
+      <input type="number" class="form-control" id="contact" name="contact" value="<%= driver.contact %>" placeholder="Contact" required>
+    </div>
+  </div>
+
+  <div class="row form-group mb-4">
+    <div class="col">
+      <label for="aadharNumber">Aadhar Number</label>
+      <input type="text" class="form-control" id="aadharNumber" name="aadharNumber" value="<%= driver.aadharNumber %>" placeholder="Aadhar Number" required>
+    </div>
+
+    <div class="col">
+      <label for="licenseNumber">License Number</label>
+      <input type="text" class="form-control" id="licenseNumber" name="licenseNumber" value="<%= driver.licenseNumber %>" placeholder="License Number" required>
+    </div>
+  </div>
+
+  <div class="row form-group mb-4">
+    <div class="col">
+      <label for="currentLocation">Current Location</label>
+      <input type="text" class="form-control" id="currentLocation" name="currentLocation" value="<%= driver.currentLocation %>" placeholder="Current Location" required>
+    </div>
+
+    <div class="col">
+      <label for="preferredDestinations">Preferred Destinations</label>
+      <input type="text" class="form-control" id="preferredDestinations" name="preferredDestinations" value="<%= driver.preferredDestinations %>" placeholder="Preferred Destinations" required>
+    </div>
+  </div>
+
+  <div class="row form-group mb-4">
+    <div class="col">
+      <label for="status">Status</label>
+      <input type="text" class="form-control" id="status" name="status" value="<%= driver.status %>" placeholder="Status" required>
+    </div>
+  </div>
+
+  <div class="form-group mb-4">
+    <button type="submit" class="btn btn-primary">Update Driver</button>
+
+    <!-- Delete confirmation modal -->
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" id="deleteButton" data-bs-target="#deleteModal">Delete Driver</button>
+  </div>
+
+</form>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="deleteModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">You are about to remove a driver record.</div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>
+          This will remove the driver record of <b class="fw-bold"><%= driver.name %></b><br/>
+          Are you sure?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form action="/editDriver/<%= driver._id %>?_method=DELETE" method="POST" class="position-relative">
+          <button type="submit" class="btn btn-primary">Yes, Remove Driver</button>
+        </form>
+     

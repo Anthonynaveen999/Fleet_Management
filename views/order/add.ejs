@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Order</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Add New Order</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+          <a href="/orders" class="btn btn-sm btn-outline-secondary">Back to Orders</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col py-3">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="/orders">Orders</a></li>
+              <li class="breadcrumb-item active" aria-current="page">New Order</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col text-end fw-lighter">
+          <b>UserId</b>
+        </div>
+      </div>
+    </div>
+
+    <form action="/orders/add" method="POST">
+
+      <div class="row form-group mb-4">
+        <div class="col">
+          <label for="customer_name">Customer Name</label>
+          <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Customer Name" required>
+        </div>
+
+        <div class="col">
+          <label for="contact">Contact</label>
+          <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact" required>
+        </div>
+      </div>
+
+      <div class="row form-group mb-4">
+        <div class="col">
+          <label for="pick_up">Pick Up Location</label>
+          <input type="text" class="form-control" id="pick_up" name="pick_up" placeholder="Pick Up Location" required>
+        </div>
+
+        <div class="col">
+          <label for="destination">Destination</label>
+          <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination" required>
+        </div>
+      </div>
+
+      <div class="row form-group mb-4">
+        <div class="col">
+          <label for="cargo_weight">Cargo Weight</label>
+          <input type="text" class="form-control" id="cargo_weight" name="cargo_weight" placeholder="Cargo Weight" required>
+        </div>
+
+        <div class="col">
+          <label for="status">Status</label>
+          <input type="text" class="form-control" id="status" name="status" placeholder="Status" required>
+        </div>
+      </div>
+
+      <div class="form-group mb-4">
+        <button type="submit" class="btn btn-primary">Add Order</button>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
